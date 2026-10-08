@@ -64,7 +64,7 @@ def page(p):
 <div class="abs statrule"></div>
 {stat}
 <div class="abs footrule"></div>
-<div class="abs foot"><div class="ents">{ents}</div><div class="brand">{logo(150)}</div></div>
+<div class="abs foot"><div class="ents">{ents}</div><div class="brand">{logo(150, True)}</div></div>
 </body></html>"""
 
 CHECK = """() => { const bad=[];
