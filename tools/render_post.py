@@ -58,7 +58,7 @@ def page(p):
     return f"""<html><head><meta charset="utf-8"><style>{CSS}{DARK if dark else ""}</style></head><body>
 <div class="abs top"><div class="cat">{e(p['category'])}</div><div>{e(p['date'])}</div></div>
 <div class="abs rule"></div>
-<div class="abs lang l-en">EN</div><div class="abs slot en">{e(p['en'])}</div>
+<div class="abs lang l-en">EN</div><div class="abs slot en">{e(p['en']).replace('-', chr(0x2011))}</div>
 <div class="abs lang l-ko">KO</div><div class="abs slot ko">{e(p['ko'])}</div>
 <div class="abs lang l-mn">MN</div><div class="abs slot mn">{e(p['mn'])}</div>
 <div class="abs statrule"></div>
