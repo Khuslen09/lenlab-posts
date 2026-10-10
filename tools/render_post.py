@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """LENLAB Instagram post renderer (FIXED template: every element has a fixed position and size;
 overflowing text makes the script exit 1 instead of shrinking). Usage: python3 render_post.py posts.json OUT_DIR
-posts.json = [{"slug","category","date","en","ko","mn","stat","stat_label","entities":[..],"theme":"light"|"dark"}]"""
+posts.json = [{"slug","category","date","en","ko","mn","stat","stat_label","entities":[..],"theme":"light"|"dark",
+               "what":{"ko","en","mn"}, "why":{"ko","en","mn"}, "summary":{"ko","en","mn"}}]
+If what/why/summary are present, renders a 4-slide carousel: <slug>-1.png (cover) ... <slug>-4.png.
+Otherwise renders only the cover as <slug>.png."""
 import asyncio, json, sys, html, os
 from playwright.async_api import async_playwright
 
@@ -39,6 +42,15 @@ body{{width:1080px;height:1350px;background:{PAPER};color:{INK};font-family:'Dej
 .ents{{display:flex;flex-wrap:nowrap;gap:12px;max-width:740px;overflow:hidden}}
 .ent{{border:2px solid {INK};padding:9px 18px;font-family:'DejaVu Sans',sans-serif;font-weight:bold;font-size:20px;letter-spacing:3px;text-transform:uppercase;white-space:nowrap}}
 .brand{{display:flex;align-items:center}}
+.card{{top:756px;left:52px;width:976px;height:266px;border-radius:40px;background:#FBFAF8;
+  box-shadow:18px 22px 44px rgba(17,17,17,.13), -10px -10px 26px rgba(255,255,255,.95),
+  inset 6px 6px 12px rgba(255,255,255,.9), inset -8px -8px 16px rgba(17,17,17,.05)}}
+.statrule{{display:none}}
+.ent{{border:none !important;border-radius:999px;background:#FBFAF8;
+  box-shadow:6px 7px 14px rgba(17,17,17,.12), -4px -4px 10px rgba(255,255,255,.95),
+  inset 2px 2px 4px rgba(255,255,255,.9), inset -3px -3px 6px rgba(17,17,17,.06)}}
+.ents{{padding:12px 4px;margin-left:-4px}}
+.brand svg{{filter:drop-shadow(8px 10px 14px rgba(17,17,17,.18))}}
 """
 
 DARK = """
@@ -46,7 +58,12 @@ body{background:#111111;color:#F5F2EE}
 .rule,.footrule,.statrule{background:#F5F2EE}
 .mn{color:#CFCAC4}.statl{color:#BDB8B2}
 .ent{border-color:#F5F2EE;color:#F5F2EE}
-.cat,.lang,.stat{color:#E2372B}.cat:before{background:#E2372B}
+.cat,.lang,.stat{color:#E2372B}
+.card{background:#1B1B1B;box-shadow:16px 18px 36px rgba(0,0,0,.65), -8px -8px 22px rgba(255,255,255,.045),
+  inset 3px 3px 8px rgba(255,255,255,.06), inset -6px -6px 14px rgba(0,0,0,.45)}
+.ent{background:#1B1B1B;box-shadow:6px 7px 14px rgba(0,0,0,.6), -3px -3px 8px rgba(255,255,255,.05),
+  inset 2px 2px 4px rgba(255,255,255,.07), inset -3px -3px 6px rgba(0,0,0,.4)}
+.brand svg{filter:drop-shadow(8px 10px 16px rgba(0,0,0,.7))}.cat:before{background:#E2372B}
 """
 
 def page(p):
@@ -62,10 +79,73 @@ def page(p):
 <div class="abs lang l-ko">KO</div><div class="abs slot ko">{e(p['ko'])}</div>
 <div class="abs lang l-mn">MN</div><div class="abs slot mn">{e(p['mn'])}</div>
 <div class="abs statrule"></div>
+<div class="abs card"></div>
 {stat}
 <div class="abs footrule"></div>
 <div class="abs foot"><div class="ents">{ents}</div><div class="brand">{logo(150, not dark)}</div></div>
 </body></html>"""
+
+
+HANDLE = "@lenlab.official"
+SLIDE_CSS = f"""
+.sec{{top:164px;height:70px;font-weight:bold;font-size:56px;line-height:1.2;white-space:nowrap}}
+.sub{{top:240px;height:34px;font-family:'Noto Sans CJK KR','DejaVu Sans',sans-serif;font-size:24px;color:#777;letter-spacing:1px;white-space:nowrap}}
+.bigcard{{left:52px;width:976px;border-radius:40px;background:#FBFAF8;
+  box-shadow:18px 22px 44px rgba(17,17,17,.13), -10px -10px 26px rgba(255,255,255,.95),
+  inset 6px 6px 12px rgba(255,255,255,.9), inset -8px -8px 16px rgba(17,17,17,.05)}}
+.c-body{{top:304px;height:760px}}
+.b-lko{{top:344px}} .b-len{{top:654px}} .b-lmn{{top:850px}}
+.b-ko{{top:372px;height:252px;font-family:'Noto Sans CJK KR',sans-serif;font-weight:500;font-size:42px;line-height:1.5;word-break:keep-all}}
+.b-en{{top:682px;height:141px;font-family:'DejaVu Sans',sans-serif;font-size:31px;line-height:1.5;color:#333}}
+.b-mn{{top:878px;height:135px;font-family:'DejaVu Sans',sans-serif;font-size:29px;line-height:1.55;color:#333}}
+.c-sum{{top:304px;height:610px}}
+.s-ko{{top:356px;height:240px;font-family:'Noto Serif CJK KR',serif;font-weight:bold;font-size:54px;line-height:1.45;word-break:keep-all}}
+.s-en{{top:628px;height:100px;font-weight:bold;font-size:34px;line-height:1.45}}
+.s-mn{{top:760px;height:96px;font-size:31px;line-height:1.5;color:#333}}
+.cta{{top:968px;height:40px;font-family:'DejaVu Sans',sans-serif;font-weight:bold;font-size:24px;letter-spacing:5px;color:{RED};text-align:center}}
+.handle{{font-family:'DejaVu Sans',sans-serif;font-size:24px;letter-spacing:3px;font-weight:bold}}
+"""
+SLIDE_DARK = """
+.sub{color:#9A958F}
+.bigcard{background:#1B1B1B;box-shadow:16px 18px 36px rgba(0,0,0,.65), -8px -8px 22px rgba(255,255,255,.045),
+  inset 3px 3px 8px rgba(255,255,255,.06), inset -6px -6px 14px rgba(0,0,0,.45)}
+.b-en,.b-mn,.s-mn{color:#CFCAC4}.cta{color:#E2372B}
+"""
+SECTIONS = {2: ("what", "What happened", "무슨 일? · Юу болсон бэ?"),
+            3: ("why", "Why it matters", "왜 중요할까? · Яагаад чухал вэ?"),
+            4: ("summary", "In one line", "한 줄 요약 · Нэг өгүүлбэрээр")}
+
+def slide(p, n):
+    e = lambda s: html.escape(s or "")
+    dark = p.get("theme") == "dark"
+    key, title, sub = SECTIONS[n]
+    d = p[key]
+    head = f"""<html><head><meta charset="utf-8"><style>{CSS}{SLIDE_CSS}{DARK if dark else ""}{SLIDE_DARK if dark else ""}</style></head><body>
+<div class="abs top"><div class="cat">{e(p['category'])}</div><div>{n:02d} / 04</div></div>
+<div class="abs rule"></div>
+<div class="abs sec">{title}</div><div class="abs sub">{sub}</div>"""
+    if n < 4:
+        body = f"""<div class="abs bigcard c-body"></div>
+<div class="abs lang b-lko">KO</div><div class="abs slot b-ko">{e(d['ko'])}</div>
+<div class="abs lang b-len">EN</div><div class="abs slot b-en">{e(d['en'])}</div>
+<div class="abs lang b-lmn">MN</div><div class="abs slot b-mn">{e(d['mn'])}</div>"""
+    else:
+        body = f"""<div class="abs bigcard c-sum"></div>
+<div class="abs slot s-ko">{e(d['ko'])}</div>
+<div class="abs slot s-en">{e(d['en'])}</div>
+<div class="abs slot s-mn">{e(d['mn'])}</div>
+<div class="abs cta">SAVE · SHARE · FOLLOW</div>"""
+    foot = f"""<div class="abs footrule"></div>
+<div class="abs foot"><div class="handle">{HANDLE}</div><div class="brand">{logo(150, not dark)}</div></div>
+</body></html>"""
+    return head + body + foot
+
+SLIDE_CHECK = """() => { const bad=[];
+ for (const [sel,name] of [['.b-ko','KO body (max 4 lines)'],['.b-en','EN body (max 3 lines)'],['.b-mn','MN body (max 3 lines)'],
+   ['.s-ko','KO summary (max 3 lines)'],['.s-en','EN summary (max 2 lines)'],['.s-mn','MN summary (max 2 lines)']]) {
+   const el=document.querySelector(sel); if (el && el.scrollHeight > el.clientHeight+1) bad.push(name); }
+ const top=document.querySelector('.top'); if (top && top.scrollWidth > top.clientWidth+1) bad.push('category (too long)');
+ return bad; }"""
 
 CHECK = """() => { const bad=[];
  for (const [sel,name] of [['.en','en (max 2 lines)'],['.ko','ko (max 2 lines)'],['.mn','mn (max 2 lines)'],['.statl','stat_label (max 2 lines)']]) {
@@ -83,12 +163,21 @@ async def main(src, out):
         pg = await b.new_page(viewport={"width": 1080, "height": 1350})
         errors = []
         for p in posts:
+            carousel = all(k in p for k in ("what", "why", "summary"))
             await pg.set_content(page(p)); await pg.wait_for_timeout(200)
             bad = await pg.evaluate(CHECK)
             if bad:
-                errors.append(f"{p['slug']}: TEXT TOO LONG -> shorten: " + ", ".join(bad))
-            path = os.path.join(out, f"{p['slug']}.png")
+                errors.append(f"{p['slug']} cover: TEXT TOO LONG -> shorten: " + ", ".join(bad))
+            path = os.path.join(out, f"{p['slug']}-1.png" if carousel else f"{p['slug']}.png")
             await pg.screenshot(path=path); print(path)
+            if carousel:
+                for n in (2, 3, 4):
+                    await pg.set_content(slide(p, n)); await pg.wait_for_timeout(150)
+                    bad = await pg.evaluate(SLIDE_CHECK)
+                    if bad:
+                        errors.append(f"{p['slug']} slide {n} ({SECTIONS[n][0]}): TEXT TOO LONG -> shorten: " + ", ".join(bad))
+                    path = os.path.join(out, f"{p['slug']}-{n}.png")
+                    await pg.screenshot(path=path); print(path)
         await b.close()
     if errors:
         print("\n".join(errors), file=sys.stderr)
