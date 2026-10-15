@@ -1,0 +1,42 @@
+🇰🇷 미국 8개 주가 오픈AI를 고소했다: 아이들에게 안전한가?
+⠀
+14일(미국 시간) 아이오와·캔자스·몬태나 등 8개 주가
+챗GPT가 아이들에게 위험하다며 오픈AI를 각각 고소했어요.
+⠀
+안전하다고 홍보했지만 실제로는 위험을 숨겼고,
+나이 확인·부모 동의 없이 어린이 데이터를 모았다는 주장이에요.
+아직 법원 판단은 나오지 않았어요.
+⠀
+👉 오픈AI는 부모 통제 기능·휴식 알림 등 보호 장치가 있다고 밝혔어요.
+AI 챗봇, 몇 살부터 써도 될까요?
+⠀
+⠀
+🇺🇸 Eight US states just sued OpenAI over kids’ safety.
+⠀
+On Oct 14, states including Iowa, Kansas and Montana
+each sued OpenAI, saying ChatGPT puts children at risk.
+⠀
+They claim it was marketed as safe while risks were hidden,
+and that it collects kids’ data without age checks or parental consent.
+No court has ruled yet.
+⠀
+👉 OpenAI points to parental controls and break reminders.
+What age is too young for an AI chatbot?
+⠀
+⠀
+🇲🇳 АНУ-ын 8 муж хүүхдийн аюулгүй байдлын асуудлаар OpenAI-г шүүхэд өглөө.
+⠀
+10-р сарын 14-нд Айова, Канзас, Монтана зэрэг 8 муж
+ChatGPT хүүхдэд аюултай гэж тус тусдаа нэхэмжлэл гаргав.
+⠀
+Аюулгүй гэж сурталчилсан ч эрсдэлийг нуусан, насыг шалгалгүй,
+эцэг эхийн зөвшөөрөлгүйгээр хүүхдийн мэдээлэл цуглуулсан гэж үзэж байна.
+Шүүх хараахан шийдээгүй.
+⠀
+👉 OpenAI эцэг эхийн хяналт, завсарлагын сануулга зэрэг хамгаалалттай гэв.
+Хэдэн наснаас AI чатбот ашиглах нь зөв бэ?
+⠀
+⠀
+📎 Source: Quartz · gHacks (2026.10.14–15)
+⠀
+#오픈AI #챗GPT #AI뉴스 #AIlenlab #lenlab
