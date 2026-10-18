@@ -1,0 +1,43 @@
+🇰🇷 라이벌과 손잡은 삼성: 엔비디아 HBM, TSMC가 함께 만든다
+⠀
+18일 서울경제 보도에 따르면 삼성전자가
+엔비디아 맞춤형 HBM(AI용 초고속 메모리)의 핵심 부품
+‘베이스다이’를 TSMC 3나노 공정으로 만들기로 했어요.
+⠀
+엔비디아가 삼성·SK하이닉스·마이크론에 공정 통일을 요구했고,
+삼성이 이를 받아들였다는 거예요.
+삼성은 원래 메모리부터 칩까지 혼자 만드는 방식을 고수해 왔어요.
+⠀
+👉 아직 회사 공식 발표는 아니에요.
+AI칩 시장에선 이제 고객(엔비디아)이 규칙을 정한다는 신호예요.
+⠀
+⠀
+🇺🇸 Samsung teams up with rival TSMC for Nvidia’s HBM.
+⠀
+Per Seoul Economic Daily on Oct 18, Samsung will have TSMC make
+the base die (the logic layer) of Nvidia’s custom HBM,
+the super-fast memory used in AI chips, on its 3nm process.
+⠀
+Nvidia reportedly asked Samsung, SK Hynix and Micron to use the same process,
+and Samsung agreed, breaking its do-it-all-in-house approach.
+⠀
+👉 Not yet officially confirmed by the companies.
+In AI chips, the customer now sets the rules.
+⠀
+⠀
+🇲🇳 Samsung өрсөлдөгч TSMC-тэй хамтран Nvidia-гийн HBM хийнэ.
+⠀
+10-р сарын 18-ны Seoul Economic Daily-ийн мэдээлснээр Samsung
+Nvidia-гийн тусгай HBM (AI-д зориулсан хурдан санах ой)-ийн
+суурь чипийг TSMC-ийн 3нм технологиор хийлгэнэ.
+⠀
+Nvidia Samsung, SK Hynix, Micron-оос ижил технологи шаардсан бөгөөд
+Samsung үүнийг зөвшөөрсөн гэнэ.
+⠀
+👉 Компаниуд албан ёсоор хараахан баталгаажуулаагүй.
+AI чипийн зах зээлд одоо хэрэглэгч дүрмээ тогтоож байна.
+⠀
+⠀
+📎 Source: 서울경제 · 이코노미트리뷴 (2026.10.18)
+⠀
+#삼성전자 #반도체 #엔비디아 #반도체lenlab #lenlab

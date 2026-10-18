@@ -1,0 +1,46 @@
+🇰🇷 AI 비서가 내 돈을 옮긴다? 은행들이 막았다
+⠀
+미국 증권사 찰스슈왑과 JP모건이
+외부 AI 에이전트(사람 대신 클릭·결제하는 AI)의
+고객 계좌 송금을 막고 있다고 밝혔어요.
+아마존도 메타의 쇼핑 AI ‘뮤즈’를 차단했어요.
+⠀
+이유는 책임 문제예요. 고객이 AI에 비밀번호를 맡겼다가
+돈이 잘못 나가면, 누가 책임지냐는 거죠.
+슈왑은 이런 시도를 매주 수십 건씩 막고 있대요.
+⠀
+👉 AI가 다 해주는 시대, 웹은 오히려 문을 닫는 중.
+여러분은 AI에게 결제를 맡길 수 있나요?
+⠀
+⠀
+🇺🇸 Banks are locking AI agents out of your money.
+⠀
+Schwab and JPMorgan say they block outside AI agents
+(AIs that click and pay for you) from moving client money.
+Amazon has also blocked Meta’s shopping agent, Muse.
+⠀
+The issue is liability: if you hand an AI your password
+and money goes missing, who pays?
+Schwab says it stops such attempts dozens of times a week.
+⠀
+👉 As AI agents rise, websites are closing the door.
+Would you let an AI pay for you?
+⠀
+⠀
+🇲🇳 Банкууд AI агентыг таны мөнгөнд хүрэхийг хаалаа.
+⠀
+Schwab, JPMorgan гадны AI агент (таны өмнөөс төлбөр хийдэг AI)
+харилцагчийн мөнгийг шилжүүлэхийг хааж байгаагаа мэдэгдэв.
+Amazon ч мөн Meta-гийн худалдааны AI болох Muse-г хаасан.
+⠀
+Гол асуудал нь хариуцлага: нууц үгээ AI-д өгөөд
+мөнгө алдвал хэн хариуцах вэ?
+Schwab ийм оролдлогыг долоо хоногт хэдэн арваар нь хаадаг.
+⠀
+👉 AI агент өсөх тусам вэб хаалгаа хааж байна.
+Та AI-д төлбөрөө даатгах уу?
+⠀
+⠀
+📎 Source: Gizmodo · The Next Web · The Verge (2026.10.16–18)
+⠀
+#AI뉴스 #AI에이전트 #테크뉴스 #AIlenlab #lenlab
