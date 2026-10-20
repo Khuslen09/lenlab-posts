@@ -1,0 +1,41 @@
+🇰🇷 해커 1명 + AI = 기업 100곳 뚫렸다
+⠀
+로이터가 19일(현지시간) 보도했어요.
+중국어를 쓰는 해커 1명이 AI 에이전트(스스로 작업하는 AI)로
+기업 웹사이트 1,200곳 이상을 공격해 100곳 넘게 침입했어요.
+⠀
+들어간 AI 사용료는 약 5,000달러, 성공 1건에 약 50달러.
+한 건 뚫는 데 평균 하루가 채 안 걸렸어요.
+보안업체 노르포지가 노출된 공격 대시보드를 발견하며 드러났어요.
+⠀
+👉 해킹 비용이 확 싸졌다는 경고예요.
+AI 시대, 보안도 AI로 막아야 할까요?
+⠀
+⠀
+🇺🇸 One hacker plus AI agents breached 100+ companies.
+⠀
+Reuters reported on Oct 19 that a Chinese-speaking hacker
+used AI agents to attack 1,200+ company websites, breaching over 100.
+⠀
+The AI bill was about $5,000, roughly $50 per successful break-in,
+and each took under a day on average. Security firm NorForge found it.
+⠀
+👉 Hacking just got much cheaper.
+Will we need AI to defend against AI?
+⠀
+⠀
+🇲🇳 Нэг хакер AI агентын тусламжтай 100 гаруй компанийг эвджээ.
+⠀
+Reuters 19-нд мэдээлснээр хятад хэлтэй нэг хакер AI агент ашиглан
+1,200 гаруй компанийн сайт руу халдаж, 100 гаруйд нь нэвтэрсэн.
+⠀
+AI зардал нь ойролцоогоор 5,000 доллар, амжилттай нэг халдлагад 50 доллар.
+Нэг халдлага дунджаар нэг өдөр хүрэхгүй хугацаа зарцуулжээ.
+⠀
+👉 Хакердах өртөг огцом буурсныг харуулж байна.
+AI-аас AI-аар хамгаалах уу?
+⠀
+⠀
+📎 Source: 노컷뉴스 · Cybersecurity News (로이터 인용, 2026.10.20)
+⠀
+#해킹 #사이버보안 #AI뉴스 #AIlenlab #lenlab
